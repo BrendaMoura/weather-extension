@@ -4,7 +4,10 @@
   "description": "This is a chrome extension to show current weather",
   "manifest_version": 3,
   "author": "Brenda Moura",
-  "permissions": ["activeTab", "declarativeContent", "storage", "geolocation"],
+  "permissions": ["geolocation"],
+  "host_permissions": [
+    "https://weatherapi-com.p.rapidapi.com/*"
+  ],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],

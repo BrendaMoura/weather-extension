@@ -10,13 +10,13 @@ const getWeather = async (position) => {
   const longitude = position.coords.longitude;
   const latitude = position.coords.latitude;
 
-  const url = `https://weatherbit-v1-mashape.p.rapidapi.com/current?lon=${longitude}&lat=${latitude}`;
+  const url = `https://weatherapi-com.p.rapidapi.com/current.json?q=${latitude}%2C${longitude}`;
   const options = {
-    method: "GET",
+    method: 'GET',
     headers: {
-      "X-RapidAPI-Key": "2bfb168cc2msh0d23d392e6cfe3cp1eb3bbjsne04afa55e429",
-      "X-RapidAPI-Host": "weatherbit-v1-mashape.p.rapidapi.com",
-    },
+      'X-RapidAPI-Key': '2bfb168cc2msh0d23d392e6cfe3cp1eb3bbjsne04afa55e429',
+      'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
+    }
   };
 
   try {
@@ -35,11 +35,11 @@ const showWeather = (temperature) => {
     month: "long",
   });
 
-  title.textContent = `${temperature.data[0].city_name}, ${temperature.data[0].country_code}`;
+  title.textContent = `${temperature.location.name}, ${temperature.location.country}`;
 
   date.textContent = currentDate;
 
-  weather.textContent = `${temperature.data[0].temp}°C`;
+  weather.textContent = `${temperature.current.temp_c}°C`;
 };
 
 getCoordinates();
